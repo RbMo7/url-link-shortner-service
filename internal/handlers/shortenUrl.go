@@ -13,7 +13,7 @@ type ShortenRequest struct {
 }
 
 type ShortenResponse struct {
-	ShortCode string `json:"short_code"`
+	ShortCode string `json:"code"`
 }
 
 func ShortenHandler(w http.ResponseWriter, r *http.Request) {

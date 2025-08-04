@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"os"
 
+	"urlshortener/internal/handlers"
+
 	"github.com/joho/godotenv"
 )
 
@@ -27,6 +29,8 @@ func main() {
 		fmt.Fprintf(w, "Welcome to the URL Shortener!")
 		fmt.Printf("Received request: %s %s\n", r.Method, r.URL.Path)
 	})
+
+	http.HandleFunc("/shorten", handlers.ShortenHandler)
 
 	http.ListenAndServe(":"+port, nil)
 }
